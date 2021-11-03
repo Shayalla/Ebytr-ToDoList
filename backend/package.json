@@ -15,5 +15,8 @@
     "joi": "^17.4.2",
     "mongodb": "^4.1.4",
     "nodemon": "^2.0.14"
+  },
+  "devDependencies": {
+    "eslint": "^8.1.0"
   }
 }

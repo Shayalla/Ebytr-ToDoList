@@ -21,16 +21,18 @@ const createTask = async (task, done) => {
 
   await tasksModel.addTasks(task, done);
   return { task, done };
-}
+};
 
-const updateTask = async (task, done) => {
+const updateTask = async (id, task, done) => {
   const err = await isValid(task, done);
   if (err) return { err, error: true };
 
-  const 
-}
+  await tasksModel.updateTask(id, task, done);
+  return { task, done };
+};
 
 module.exports = {
   createTask,
   findAllTasks,
+  updateTask,
 }
