@@ -4,16 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^10.0.0",
     "eslint-config-trybe-backend": "^1.0.4",
     "express": "^4.17.1",
     "joi": "^17.4.2",
     "mongodb": "^4.1.4",
     "nodemon": "^2.0.14"
+  },
+  "devDependencies": {
+    "eslint": "^8.1.0"
   }
 }

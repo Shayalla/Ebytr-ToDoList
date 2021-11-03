@@ -6,14 +6,11 @@ const isValid = (task, done) => {
     task: Joi.string().required(),
     done: Joi.string().required(),
   });
-  const { error } = tasks.validate({ task, done })
-  return error;
+  const { message } = tasks.validate({ task, done }).error.details[0]
+  return message;
 }
 
-const findAllTasks = async () => {
-  const tasks = await tasksModel.findAll();
-  return { tasks };
-};
+const findAllTasks = async () => await tasksModel.findAll();
 
 const createTask = async (task, done) => {
   const err = await isValid(task, done);
@@ -21,16 +18,18 @@ const createTask = async (task, done) => {
 
   await tasksModel.addTasks(task, done);
   return { task, done };
-}
+};
 
-const updateTask = async (task, done) => {
+const updateTask = async (id, task, done) => {
   const err = await isValid(task, done);
   if (err) return { err, error: true };
 
-  const 
-}
+  await tasksModel.updateTask(id, task, done);
+  return { task, done };
+};
 
 module.exports = {
   createTask,
   findAllTasks,
+  updateTask,
 }
