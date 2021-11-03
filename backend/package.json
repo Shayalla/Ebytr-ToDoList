@@ -10,7 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "eslint-config-trybe-backend": "^1.0.4",
     "express": "^4.17.1",
+    "joi": "^17.4.2",
     "mongodb": "^4.1.4",
     "nodemon": "^2.0.14"
   }
