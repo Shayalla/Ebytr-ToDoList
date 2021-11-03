@@ -6,10 +6,7 @@ const OPTIONS = {
     useUnifiedTopology: true,
 };
 
-const { MONGO_DB_URL } = process.env;
-
-
-const DB_NAME = 'StoreManager';
+const { MONGO_DB_URL, DB_NAME } = process.env;
 
 let db = null;
 
