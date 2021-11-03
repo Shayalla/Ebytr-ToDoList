@@ -6,14 +6,11 @@ const isValid = (task, done) => {
     task: Joi.string().required(),
     done: Joi.string().required(),
   });
-  const { error } = tasks.validate({ task, done })
-  return error;
+  const { message } = tasks.validate({ task, done }).error.details[0]
+  return message;
 }
 
-const findAllTasks = async () => {
-  const tasks = await tasksModel.findAll();
-  return { tasks };
-};
+const findAllTasks = async () => await tasksModel.findAll();
 
 const createTask = async (task, done) => {
   const err = await isValid(task, done);
