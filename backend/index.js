@@ -12,6 +12,10 @@ app.listen(PORT, () => {
   console.log(`Escutando na porta ${PORT}`);
 });
 
-app.route('/')
+app.route('/tasks/:id')
+  .put(tasksControllers.updateTask)
+  .delete(tasksControllers.deleteTask);
+
+app.route('/tasks')
   .get(tasksControllers.findTasks)
-  .post(tasksControllers.createTask)
+  .post(tasksControllers.createTask);
